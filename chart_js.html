@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard com Chart.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex;">
+<div>
+    <canvas id="graficoLinha" style="position: relative; height: 50vh; width: 80vh;"></canvas>
+</div>
+<div>
+    <canvas id="graficoBarra" style="position: relative; height: 50vh; width: 80vh;"></canvas>
+</div>
+</body>
+  
+
+  <script>
+    new Chart(document.getElementById('graficoLinha'), {
+      type: 'line',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+          label: 'My First dataset',
+          data: [0, 10, 5, 3, 20, 30],
+          borderColor: 'red',
+          backgroundColor: 'rgba(255, 0, 0, 0.1)',
+          fill: false,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: false,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    
+    new Chart(document.getElementById('graficoBarra'), {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [{
+          label: 'My First dataset',
+          data: [0, 10, 5, 3, 20, 30],
+          backgroundColor: 'red'
+        }]
+      },
+      options: {
+        responsive: false,
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
